@@ -1,0 +1,94 @@
+ CREATE DATABASE Sangu_practice;
+Query OK, 1 row affected (0.20 sec)
+
+mysql> USE Sangu_practice;
+Database changed
+
+mysql> create table Customers (CustomerID INT, CustomerName Varchar(100), City Varchar(50));
+Query OK, 0 rows affected (0.27 sec)
+
+mysql> insert into Customers Values(1, 'Alice', 'Bangalore')
+    -> ;
+Query OK, 1 row affected (0.23 sec)
+
+mysql> insert into Customers Values(2, 'Balaji', 'Bangalore'), (3, 'Raju', 'Mumbai'), (4, 'Suraj', 'Bangalore');
+Query OK, 3 rows affected (0.15 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM  Customers;
++------------+--------------+-----------+
+| CustomerID | CustomerName | City      |
++------------+--------------+-----------+
+|          1 | Alice        | Bangalore |
+|          2 | Balaji       | Bangalore |
+|          3 | Raju         | Mumbai    |
+|          4 | Suraj        | Bangalore |
++------------+--------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT CustomerName, City FROM Customers;
++--------------+-----------+
+| CustomerName | City      |
++--------------+-----------+
+| Alice        | Bangalore |
+| Balaji       | Bangalore |
+| Raju         | Mumbai    |
+| Suraj        | Bangalore |
++--------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE Customers ADD Country VARCHAR(50);
+Query OK, 0 rows affected (0.44 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE Customers SET Country = 'India' WHERE Country IS NULL;
+Query OK, 4 rows affected (0.30 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> SELECT DISTINCT Country FROM Customers;
++---------+
+| Country |
++---------+
+| India   |
++---------+
+1 row in set (0.05 sec)
+
+mysql> UPDATE Customers
+    -> SET City = 'Hyderabad', Country = 'India'
+    -> WHERE CustomerID = 3;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Customers SET City = 'Mexico', Country = 'Mexico' WHERE CustomerID = 4;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>
+mysql> UPDATE Customers SET City = 'Newyork', Country = 'Usa' WHERE CustomerID = 2;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>
+mysql> UPDATE Customers SET City = 'Gulbarga', Country = 'India' WHERE CustomerID = 1;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from customers;
++------------+--------------+-----------+---------+
+| CustomerID | CustomerName | City      | Country |
++------------+--------------+-----------+---------+
+|          1 | Alice        | Gulbarga  | India   |
+|          2 | Balaji       | Newyork   | Usa     |
+|          3 | Raju         | Hyderabad | India   |
+|          4 | Suraj        | Mexico    | Mexico  |
++------------+--------------+-----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Customers
+    -> WHERE Country='Mexico';
++------------+--------------+--------+---------+
+| CustomerID | CustomerName | City   | Country |
++------------+--------------+--------+---------+
+|          4 | Suraj        | Mexico | Mexico  |
++------------+--------------+--------+---------+
+1 row in set (0.00 sec)
