@@ -1,0 +1,123 @@
+mysql> CREATE TABLE Products (
+    ->     ProductID INT PRIMARY KEY,
+    ->     ProductName VARCHAR(100),
+    ->     Price DECIMAL(10, 2)
+    -> );
+Query OK, 0 rows affected (3.26 sec)
+
+mysql> INSERT INTO products(ProductID, ProductName, Price) VALUES (1, 'Laptop', 500000.00), (2, 'Mobile phone', 200000.00), (3, 'Tablet', '30000.00'),
+    -> (4, 'Smart Watch', '80000.00');
+Query OK, 4 rows affected (0.75 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Products ORDER BY Price;
++-----------+--------------+-----------+
+| ProductID | ProductName  | Price     |
++-----------+--------------+-----------+
+|         3 | Tablet       |  30000.00 |
+|         4 | Smart Watch  |  80000.00 |
+|         2 | Mobile phone | 200000.00 |
+|         1 | Laptop       | 500000.00 |
++-----------+--------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Products ORDER BY Price DESC;
++-----------+--------------+-----------+
+| ProductID | ProductName  | Price     |
++-----------+--------------+-----------+
+|         1 | Laptop       | 500000.00 |
+|         2 | Mobile phone | 200000.00 |
+|         4 | Smart Watch  |  80000.00 |
+|         3 | Tablet       |  30000.00 |
++-----------+--------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Products ORDER BY ProductName;
++-----------+--------------+-----------+
+| ProductID | ProductName  | Price     |
++-----------+--------------+-----------+
+|         1 | Laptop       | 500000.00 |
+|         2 | Mobile phone | 200000.00 |
+|         4 | Smart Watch  |  80000.00 |
+|         3 | Tablet       |  30000.00 |
++-----------+--------------+-----------+
+4 rows in set (0.02 sec)
+
+mysql> SELECT * FROM Products ORDER BY ProductName DESC;
++-----------+--------------+-----------+
+| ProductID | ProductName  | Price     |
++-----------+--------------+-----------+
+|         3 | Tablet       |  30000.00 |
+|         4 | Smart Watch  |  80000.00 |
+|         2 | Mobile phone | 200000.00 |
+|         1 | Laptop       | 500000.00 |
++-----------+--------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Customers WHERE Country = 'India' AND CustomerName LIKE 'A%';
++------------+--------------+----------+---------+
+| CustomerID | CustomerName | City     | Country |
++------------+--------------+----------+---------+
+|          1 | Alice        | Gulbarga | India   |
++------------+--------------+----------+---------+
+1 row in set (0.12 sec)
+
+mysql> SELECT * FROM Customers
+    -> WHERE Country = 'India' AND (CustomerName LIKE 'A%' OR CustomerName LIKE 'G%');
++------------+--------------+----------+---------+
+| CustomerID | CustomerName | City     | Country |
++------------+--------------+----------+---------+
+|          1 | Alice        | Gulbarga | India   |
++------------+--------------+----------+---------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM Customers
+    -> WHERE Country = 'USA' OR Country = 'India';
++------------+--------------+-----------+---------+
+| CustomerID | CustomerName | City      | Country |
++------------+--------------+-----------+---------+
+|          1 | Alice        | Gulbarga  | India   |
+|          2 | Balaji       | Newyork   | Usa     |
+|          3 | Raju         | Hyderabad | India   |
++------------+--------------+-----------+---------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Customers
+    -> WHERE City = 'Gulbarga' OR CustomerName LIKE 'G%' OR Country = 'India';
++------------+--------------+-----------+---------+
+| CustomerID | CustomerName | City      | Country |
++------------+--------------+-----------+---------+
+|          1 | Alice        | Gulbarga  | India   |
+|          3 | Raju         | Hyderabad | India   |
++------------+--------------+-----------+---------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
