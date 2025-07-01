@@ -1,0 +1,33 @@
+SELECT * FROM Customers
+WHERE CustomerName NOT LIKE 'A%';
+
+SELECT * FROM Customers
+WHERE CustomerID NOT BETWEEN 4 AND 5;
+
+SELECT * FROM Customers WHERE City NOT IN('New York', 'Berlin');
+
+SELECT * FROM Customers
+WHERE NOT CustomerID > 4;
+
+SELECT * FROM Customers
+WHERE NOT CustomerId < 4;
+
+SELECT CustomerID, CustomerName, City
+FROM Customers
+Where Country = Null;
+
+UPDATE Customers
+SET CustomerName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+
+SELECT * FROM Customers;
+
+
+DELETE FROM Customers WHERE CustomerName='Alfred Schmidt';
+
+SELECT TOP 3 * FROM Customers;
+
+INSERT INTO Customers VALUES (1, 'Alice', 'New York', 'USA');
+
+
+
