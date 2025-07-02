@@ -1,0 +1,52 @@
+USE sangu;
+
+SELECT TOP 3 * FROM Customers;
+
+SELECT * FROM Customers FETCH FIRST 3 ROWS ONLY;
+
+SELECT * FROM Customers
+ORDER BY CustomerID
+OFFSET 0 ROWS
+FETCH FIRST 3 ROWS ONLY;
+
+CREATE TABLE Products (ProductID INT PRIMARY KEY, ProductName VARCHAR(100), Price DECIMAL(10, 2));
+
+INSERT INTO Products (ProductID, ProductName, Price) VALUES (1, 'Laptop', 55000.00);
+INSERT INTO Products (ProductID, ProductName, Price) VALUES (2, 'Mobile Phone', 20000.00);
+INSERT INTO Products (ProductID, ProductName, Price) VALUES (3, 'Tablet', 30000.00);
+INSERT INTO Products (ProductID, ProductName, Price) VALUES (4, 'Smart Watch', 8000.00);
+INSERT INTO Products (ProductID, ProductName, Price) VALUES (5, 'Monitor', 12000.00);
+
+SELECT * FROM Products;
+
+SELECT MIN(Price) FROM Products;
+
+SELECT MAX(Price) FROM Products;
+
+SELECT MIN(Price) AS SmallestPrice FROM Products;
+
+USE sangu;
+
+SELECT * FROM Products;
+
+SELECT COUNT(*)
+FROM Products;
+
+SELECT COUNT(ProductName) FROM Products;
+
+SELECT COUNT(ProductID) FROM Products WHERE Price > 30000;
+
+SELECT COUNT(DISTINCT Price)
+FROM Products;
+
+CREATE TABLE OrderDetails (OrderID INT, ProductID INT, Quantity INT);​
+
+INSERT INTO OrderDetails (OrderID, ProductID, Quantity)
+VALUES
+(1, 101, 2), (1, 102, 1),(2,103,5),(3,101,3),(4,104,4);
+
+SELECT * FROM OrderDetails;
+
+SELECT SUM(Quantity) FROM OrderDetails;
+
+
