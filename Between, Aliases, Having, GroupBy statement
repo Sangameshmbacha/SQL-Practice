@@ -1,0 +1,47 @@
+USE sangu;
+
+SELECT * FROM Products WHERE Price BETWEEN 20000 AND 30000;
+
+
+SELECT * FROM Products;
+
+SELECT * FROM Products WHERE Price NOT BETWEEN 20000 AND 30000;
+
+SELECT * FROM Products WHERE Price BETWEEN 20000 AND 30000 AND ProductID IN (1, 2, 3);
+
+SELECT * FROM Products WHERE ProductName BETWEEN 'Mobile Phone' AND 'Tablet' ORDER BY ProductName;
+
+SELECT * FROM Products WHERE ProductName NOT BETWEEN 'Mobile' AND 'Tablet'ORDER BY ProductName;
+
+SELECT * FROM OrderDetails;
+
+SELECT CustomerID AS ID FROM Customers;
+
+SELECT CustomerID ID
+FROM Customers;
+
+SELECT CustomerID AS ID, CustomerName AS Customer
+FROM Customers;
+
+SELECT ProductName AS [My Great Products]
+FROM Products;
+
+SELECT ProductName AS "Best Products"
+FROM Products;
+
+SELECT * FROM Customers;
+
+SELECT CustomerName, City + ',' + Country AS Address FROM Customers;
+
+
+SELECT * FROM Customers AS Persons;
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;
+
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) = 1;
