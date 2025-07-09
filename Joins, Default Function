@@ -1,0 +1,64 @@
+CREATE DATABASE abc;
+
+
+CREATE TABLE customers(Id INT, cust_name VARCHAR(30), designation VARCHAR(30));
+
+INSERT INTO customers VALUES (1, 'abhi', 'A'),
+(2, 'sham', 'B'),
+(3, 'ram','C'),
+(4, 'sangu','D');
+
+SELECT * FROM customers;
+
+CREATE TABLE orders(Or_id INT,amount INT, Cust_id VARCHAR(30)); 
+
+
+
+INSERT INTO orders VALUES(601, 10000, 1), 
+(602, 2000, 4),
+(603, 1500, 2);
+
+SELECT * FROM orders;
+
+SELECT orders.Or_id,
+customers.cust_name FROM ORDERS
+INNER JOIN customers ON orders.cust_id = customers.id;
+
+SELECT orders.Or_id,
+customers.cust_name FROM ORDERS
+LEFT JOIN  customers ON orders.cust_id = customers.id;
+
+SELECT orders.Or_id,
+customers.cust_name FROM ORDERS
+RIGHT JOIN customers ON orders.cust_id = customers.id;
+
+SELECT orders.Or_id,
+customers.cust_name FROM ORDERS
+FULL JOIN customers ON orders.cust_id = customers.id;
+
+SELECT id  FROM customers
+UNION
+SELECT Or_id FROM Orders;
+
+USE raju;
+
+CREATE TABLE Orders (
+    ID int NOT NULL,
+    OrderNumber int NOT NULL,
+    OrderDate date DEFAULT GETDATE()
+);
+
+INSERT INTO Orders (ID, OrderNumber)
+VALUES (1, 1001);
+
+SELECT * FROM Orders;
+
+
+
+
+
+
+
+
+
+
