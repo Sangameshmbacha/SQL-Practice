@@ -1,0 +1,32 @@
+use raju;
+
+SELECT * FROM Person;
+
+CREATE INDEX idx_lastname
+ON Person (LastName);
+
+CREATE TABLE Persons (
+    Personid INT IDENTITY(1,1) PRIMARY KEY,
+    LastName VARCHAR(55) NOT NULL,
+    FirstName VARCHAR(55),
+    Age INT
+);
+
+
+SELECT * FROM Persons;
+
+INSERT INTO Persons (LastName, FirstName, Age)
+VALUES ('Sharma', 'Amit', 30);
+
+SELECT * FROM Persons;
+
+INSERT INTO Persons (LastName, FirstName, Age)
+VALUES ('bacha', 'sangu', 21);
+
+CREATE TABLE Orders1(OrderId INT, ProductName VARCHAR(30), OrderDate INT); 
+
+INSERT INTO Orders1 VALUES (1, 'Phone', 2025-06-11),(2, 'Laptop', 2008-06-30);
+
+SELECT * FROM Orders1;
+
+SELECT * FROM Orders1 WHERE OrderDate = '2008'
